@@ -5,6 +5,7 @@ import moviesRoutes from "./routes/movies.js";
 import usersRoutes from "./routes/users.js";
 
 const app = express();
+require("../base-ORM/sqlite-init.js")
 
 // settings
 app.set("port", process.env.PORT || 4000);
