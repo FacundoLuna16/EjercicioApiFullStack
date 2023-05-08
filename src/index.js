@@ -1,11 +1,12 @@
-import express from "express";
-import morgan from "morgan";
+const express = require("express");
+const morgan = require("morgan");
 
-import moviesRoutes from "./routes/movies.js";
-import usersRoutes from "./routes/users.js";
+
+const moviesRoutes = require("./routes/movies");
+
 
 const app = express();
-require("../base-ORM/sqlite-init.js")
+require("../base-ORM/sqlite-init.js");
 
 // settings
 app.set("port", process.env.PORT || 4000);
@@ -18,7 +19,7 @@ app.use(express.json());
 
 // routes
 app.use("/api/movies", moviesRoutes);
-app.use("/api/users", usersRoutes);
+
 
 // starting the server
 app.listen(app.get("port"), () => {

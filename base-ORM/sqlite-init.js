@@ -17,7 +17,7 @@ async function CrearBaseSiNoExiste() {
         console.log("tabla Peliculas creada!");
 
         await db.run(
-            `INSERT INTO Peliculas values 
+            `INSERT INTO Peliculas (titulo, director, year, rating) values 
             ('El Padrino', 'Francis Ford Coppola', 1972, 9),
             ('La lista de Schindler', 'Steven Spielberg', 1993, 8),
             ('El Señor de los Anillos: El Retorno del Rey', 'Peter Jackson', 2003, 10),
@@ -34,10 +34,10 @@ async function CrearBaseSiNoExiste() {
     res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'Series'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
-        await db.run("CREATE table articulosfamilias( IdSerie INTEGER PRIMARY KEY AUTOINCREMENT, Titulo text NOT NULL UNIQUE,Director text NOT NULL, Year text NOT NULL ,CantTemporadas INT, Episodios INT);");
+        await db.run("CREATE table Series( IdSerie INTEGER PRIMARY KEY AUTOINCREMENT, Titulo text NOT NULL UNIQUE,Director text NOT NULL, Year text NOT NULL ,CantTemporadas INT, Episodios INT);");
     console.log("tabla Series creada!");
     await db.run(
-        `INSERT INTO articulosfamilias (Titulo, Director, Year, CantTemporadas, Episodios) VALUES 
+        `INSERT INTO Series (Titulo, Director, Year, CantTemporadas, Episodios) VALUES 
         ('Juego de Tronos', 'David Benioff y D. B. Weiss', '2011', 8, 73),
         ('Breaking Bad', 'Vince Gilligan', '2008', 5, 62),
         ('Friends', 'David Crane y Marta Kauffman', '1994', 10, 236),
