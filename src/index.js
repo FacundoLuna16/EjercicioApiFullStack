@@ -2,8 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 
 
-const moviesRoutes = require("./routes/movies");
-
+const peliculasRoutes = require("./routes/peliculas");
+const seriesRoutes = require("./routes/series");
 
 const app = express();
 require("../base-ORM/sqlite-init.js");
@@ -18,7 +18,8 @@ app.use(express.json());
 
 
 // routes
-app.use("/api/movies", moviesRoutes);
+app.use("/api/peliculas", peliculasRoutes);
+app.use("/api/series", seriesRoutes);
 
 
 // starting the server
