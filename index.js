@@ -6,7 +6,7 @@ const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
 
 const app = express();
-require("../base-ORM/sqlite-init.js");
+require("./base-ORM/sqlite-init.js");
 
 // settings
 app.set("port", process.env.PORT || 4000);

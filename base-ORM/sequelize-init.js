@@ -1,10 +1,10 @@
 // configurar ORM sequelize
 const { Sequelize, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("sqlite:" + "../.data/pymes.db");
+const sequelize = new Sequelize("sqlite:" + "./.data/recursos.db");
 // definicion del modelo de datos
 
-const pelicula = sequelize.define('Pelicula', {
+const peliculas = sequelize.define('peliculas', {
   IdPelicula: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -32,9 +32,10 @@ const pelicula = sequelize.define('Pelicula', {
       max: 10
     }
   }
-});
+},
+{timestamps: false});
 
-const series = sequelize.define('Series', {
+const series = sequelize.define('series', {
   IdSerie: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -59,11 +60,12 @@ const series = sequelize.define('Series', {
   Episodios: {
     type: DataTypes.INTEGER
   }
-});
+},
+{timestamps: false});
 
 
 module.exports = {
-  sequelize,
   series,
-  pelicula
+  sequelize,
+  peliculas
 };
