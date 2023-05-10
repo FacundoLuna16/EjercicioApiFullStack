@@ -12,8 +12,7 @@ async function CrearBaseSiNoExiste() {
     if (res.contar > 0) existe = true;
     if (!existe) {
         await db.run(
-        "CREATE table peliculas( IdPelicula INTEGER PRIMARY KEY AUTOINCREMENT"//,
-             //titulo text NOT NULL UNIQUE, director text NOT NULL, year DATE NOT NULL, rating INTEGER CHECK (rating >= 0 AND rating <= 10));"
+        "CREATE table peliculas( IdPelicula INTEGER PRIMARY KEY AUTOINCREMENT,titulo text NOT NULL UNIQUE, director text NOT NULL, year DATE NOT NULL, rating INTEGER CHECK (rating >= 0 AND rating <= 10));"
         );
         console.log("tabla Peliculas creada!");
 
@@ -52,7 +51,7 @@ async function CrearBaseSiNoExiste() {
     );
   }
 
-    // cerrar la baseh
+    // cerrar la base
     db.close();
 }
 
