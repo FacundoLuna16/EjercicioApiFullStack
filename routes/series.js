@@ -5,10 +5,14 @@ const router = express.Router();
 const db = require("../base-ORM/sequelize-init");
 
 router.get("/", async function (req, res, next) {
-  let data = await db.series.findAll({
-    attributes: ["IdSerie", "Titulo"],
-  });
-  res.json(data);
+
+  try {
+    let data = await db.series.findAll();
+    res.json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Ha ocurrido un error en el servidor.");
+  }
 });
 
 module.exports = router;

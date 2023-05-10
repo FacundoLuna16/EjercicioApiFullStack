@@ -4,6 +4,49 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize("sqlite:" + "./.data/recursos.db");
 // definicion del modelo de datos
 
+
+const series = sequelize.define('series', {
+  IdSerie: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  Titulo: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+    unique: true
+  },
+  Director: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+  Year: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  },
+  CantTemporadas: {
+    type: DataTypes.INTEGER
+  },
+  Episodios: {
+    type: DataTypes.INTEGER
+  }
+},
+{
+  // pasar a mayusculas
+  hooks: {
+    beforeValidate: function (series, options) {
+      if (typeof series.Titulo === "string") {
+        series.Titulo = series.Titulo.toUpperCase();
+      }
+    },
+  },
+
+  timestamps: false,
+}
+);
+
+
+
 const peliculas = sequelize.define('peliculas', {
   IdPelicula: {
     type: DataTypes.INTEGER,
@@ -34,35 +77,6 @@ const peliculas = sequelize.define('peliculas', {
   }
 },
 {timestamps: false});
-
-const series = sequelize.define('series', {
-  IdSerie: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  Titulo: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-    unique: true
-  },
-  Director: {
-    type: DataTypes.TEXT,
-    allowNull: false
-  },
-  Year: {
-    type: DataTypes.DATEONLY,
-    allowNull: false
-  },
-  CantTemporadas: {
-    type: DataTypes.INTEGER
-  },
-  Episodios: {
-    type: DataTypes.INTEGER
-  }
-},
-{timestamps: false});
-
 
 module.exports = {
   series,

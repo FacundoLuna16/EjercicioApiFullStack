@@ -16,7 +16,6 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
 // routes
 app.use("/api/peliculas", peliculasRoutes);
 app.use("/api/series", seriesRoutes);
