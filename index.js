@@ -10,6 +10,7 @@ require("./base-ORM/sqlite-init.js");
 
 // settings
 app.set("port", process.env.PORT || 4000);
+app.use("/api/series", seriesRoutes);
 
 // middlewares
 app.use(morgan("dev"));
@@ -18,7 +19,6 @@ app.use(express.json());
 
 // routes
 app.use("/api/peliculas", peliculasRoutes);
-app.use("/api/series", seriesRoutes);
 
 
 // starting the server
