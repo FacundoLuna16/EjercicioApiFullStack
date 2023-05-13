@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-// ~Rutas de la API
+// ~Rutas de la API. Se importan las rutas de los recursos. Hecho por 89555.
 const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
 
