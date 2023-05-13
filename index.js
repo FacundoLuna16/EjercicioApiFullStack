@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-
+// ~Rutas de la API
 const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
 
