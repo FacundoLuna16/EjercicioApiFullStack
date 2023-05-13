@@ -11,7 +11,7 @@ router.get("/", async function (req, res, next) {
     res.json(data);
   } catch (err) {
     console.log(err);
-    res.status(500).send("Ha ocurrido un error en el servidor.");
+    res.status(500).send("Ha ocurrido un error.");
   }
 });
 
