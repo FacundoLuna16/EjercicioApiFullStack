@@ -18,9 +18,9 @@ app.use(express.json());
 
 // routes
 app.use("/api/peliculas", peliculasRoutes);
+
+
 app.use("/api/series", seriesRoutes);
-
-
 // starting the server
 app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`);
