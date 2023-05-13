@@ -1,7 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
 
-// ~Rutas importadas.
 const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
 
