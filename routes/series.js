@@ -15,4 +15,6 @@ router.get("/", async function (req, res, next) {
   }
 });
 
+//Soy un generador de conflico generado por 89422
+//muy conflictuoso
 module.exports = router;
