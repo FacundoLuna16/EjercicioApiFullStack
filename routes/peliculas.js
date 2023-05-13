@@ -49,7 +49,7 @@ router.put("/:id", async (req, res) => {
       throw error;
     }
 });
-
+// DELETE /api/peliculas/1
 router.delete("/:id", async (req, res) => {
   try {
     let data = await db.peliculas.findOne({
