@@ -49,7 +49,7 @@ router.put("/:id", async (req, res) => {
       throw error;
     }
 });
-// DELETE /api/peliculas/1
+// Con el método DELETE, borramos un registro de la tabla
 router.delete("/:id", async (req, res) => {
   try {
     let data = await db.peliculas.findOne({
