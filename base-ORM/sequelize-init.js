@@ -8,6 +8,7 @@ const sequelize = new Sequelize("sqlite:" + "./.data/recursos.db");
 const series = sequelize.define('series', {
   IdSerie: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     primaryKey: true,
     autoIncrement: true
   },
