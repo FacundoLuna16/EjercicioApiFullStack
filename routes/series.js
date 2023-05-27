@@ -13,7 +13,6 @@ router.get("/", async function (req, res, next) {
     res.status(500).send("Ha ocurrido un error.");
   }
 });
-<<<<<<< HEAD
 
 //metodo get para obtener un registro por id
 router.get("/:id", async function (req, res, next) {
@@ -84,7 +83,4 @@ router.delete("/:id", async function (req, res, next) {
   }
 });
 
-=======
-// mi linea de codigo 90463
->>>>>>> 308db3e1c1762f660f18082c0ab4e37eb5bb33ef
 module.exports = router;
