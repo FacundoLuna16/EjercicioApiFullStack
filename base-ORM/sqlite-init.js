@@ -51,6 +51,28 @@ async function CrearBaseSiNoExiste() {
     );
   }
 
+
+  existe = false;
+    res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'clima'",[]);
+    if (res.contar > 0) existe = true;
+    if (!existe) {
+        await db.run("CREATE table clima( IdClima INTEGER PRIMARY KEY AUTOINCREMENT, Maxima INT NOT NULL, Minima INT NOT NULL, Fecha DATE NOT NULL, Lluvia text NOT NULL, Humedad INT NOT NULL);");
+    console.log("tabla Clima creada!");
+    await db.run(
+        `INSERT INTO clima (Maxima, Minima, Fecha, Lluvia, Humedad) VALUES 
+        (33, 23, '2022-04-17', 'SI', 55),
+        (42, 32, '2022-01-20', 'SI', 44),
+        (27, 17, '2021-09-22', 'NO', 33),
+        (28, 15, '2016-07-15', 'SI', 22),
+        (24, 10, '2018-11-04', 'NO', 11),
+        (35, 22, '2019-08-28', 'NO', 66),
+        (27, 21, '2022-02-01', 'NO', 77),
+        (30, 24, '2023-07-11', 'SI', 88),
+        (20, 11, '2017-09-24', 'NO', 55),
+        (29, 20, '2019-10-31', 'NO', 33);`
+    );
+  }
+
     // cerrar la base
     db.close();
 }

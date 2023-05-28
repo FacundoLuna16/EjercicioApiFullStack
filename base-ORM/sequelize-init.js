@@ -79,8 +79,45 @@ const peliculas = sequelize.define('peliculas', {
 },
 {timestamps: false});
 
+const clima = sequelize.define('clima', {
+  IdClima: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  Maxima: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      max: 50
+    }
+  },
+  Minima: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      min: -50
+    }
+  },
+  Fecha: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  },
+  Lluvia: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  Humedad: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+}
+},
+{timestamps: false});
+
 module.exports = {
   series,
   sequelize,
-  peliculas
+  peliculas,
+  clima
 };
