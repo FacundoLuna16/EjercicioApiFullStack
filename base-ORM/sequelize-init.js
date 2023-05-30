@@ -47,7 +47,6 @@ const series = sequelize.define('series', {
 );
 
 
-
 const peliculas = sequelize.define('peliculas', {
   IdPelicula: {
     type: DataTypes.INTEGER,
@@ -56,12 +55,12 @@ const peliculas = sequelize.define('peliculas', {
     autoIncrement: true
   },
   titulo: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
     unique: true
   },
   director: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   year: {
@@ -78,6 +77,7 @@ const peliculas = sequelize.define('peliculas', {
   }
 },
 {timestamps: false});
+
 
 const clima = sequelize.define('clima', {
   IdClima: {
@@ -115,9 +115,45 @@ const clima = sequelize.define('clima', {
 },
 {timestamps: false});
 
+
+const jugadores = sequelize.define('jugadores', {
+  IdJugador: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  Nombre: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  Pais: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  FechaNacimiento: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  },
+  EloMax: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      min: 1000
+    }
+  },
+  FechaEloMax: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  }
+},
+{timestamps: false});
+
 module.exports = {
   series,
   sequelize,
   peliculas,
-  clima
+  clima,
+  jugadores
 };

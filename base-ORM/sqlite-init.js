@@ -73,6 +73,30 @@ async function CrearBaseSiNoExiste() {
     );
   }
 
+
+  existe = false;
+    res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'jugadores'",[]);
+    if (res.contar > 0) existe = true;
+    if (!existe) {
+        await db.run("CREATE table jugadores( IdJugador INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text NOT NULL UNIQUE, Pais text NOT NULL, FechaNacimiento DATE NOT NULL, EloMax INT NOT NULL, FechaEloMax DATE NOT NULL);");
+    console.log("tabla Jugadores creada!");
+    await db.run(
+        `INSERT INTO jugadores (Nombre, Pais, FechaNacimiento, EloMax, FechaEloMax) VALUES 
+        ('Magnus Carlsen', 'Noruega', '1990-11-30', 2882, '2014-05-01'),
+        ('Ding Liren', 'China', '1992-10-24', 2816, '2018-11-01'),
+        ('Garri Kaspárov', 'Rusia', '1963-04-13', 2851, '1999-07-01'),
+        ('Vishwanathan Anand', 'India', '1969-12-11', 2817, '2011-03-01'),
+        ('Robert Fischer', 'Estados Unidos', '1943-03-09', 2785, '1972-07-01'),
+        ('Fabiano Caruana', 'Estados Unidos', '1992-07-30', 2844, '2014-10-01'),
+        ('Ian Nepomniachtchi', 'Rusia', '1990-07-14', 2795, '2023-03-01'),
+        ('Alireza Firouzja', 'Francia', '2003-06-18', 2804, '2021-12-01'),
+        ('Vladimir Kramnik', 'Rusia', '1975-06-25', 2817, '2016-10-01'),
+        ('Richárd Rapport', 'Rumania', '1996-03-25', 2776, '2022-04-01');`
+    );
+  }
+
+
+
     // cerrar la base
     db.close();
 }
