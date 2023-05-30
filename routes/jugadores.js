@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
         eloMax : req.body.eloMax,
         fechaEloMax : req.body.fechaEloMax
     });
-    res.status(200).json(data.dataValues); // devolvemos el registro agregado!
+    res.status(200).json(data.dataValues);
   } catch (error){
     throw error;
   }
@@ -51,7 +51,6 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// Con el método DELETE, borramos un registro de la tabla
 router.delete("/:id", async (req, res) => {
   try {
     let data = await db.jugadores.findOne({
