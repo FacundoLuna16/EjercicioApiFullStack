@@ -78,7 +78,7 @@ async function CrearBaseSiNoExiste() {
     res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'jugadores'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
-        await db.run("CREATE table jugadores( IdJugador INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text NOT NULL UNIQUE, Pais text NOT NULL, FechaNacimiento DATE NOT NULL, EloMax INT NOT NULL, FechaEloMax DATE NOT NULL);");
+        await db.run("CREATE table jugadores( idJugador INTEGER PRIMARY KEY AUTOINCREMENT, nombre text NOT NULL UNIQUE, pais text NOT NULL, fechaNacimiento DATE NOT NULL, eloMax INT NOT NULL, fechaEloMax DATE NOT NULL);");
     console.log("tabla Jugadores creada!");
     await db.run(
         `INSERT INTO jugadores (Nombre, Pais, FechaNacimiento, EloMax, FechaEloMax) VALUES 

@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
 const climaRoutes = require("./routes/clima");
+const jugadoresRoutes = require("./routes/jugadores");
 
 const app = express();
 require("./base-ORM/sqlite-init.js");
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use("/api/peliculas", peliculasRoutes);
 app.use("/api/series", seriesRoutes);
 app.use("/api/clima", climaRoutes);
+app.use("/api/jugadores", jugadoresRoutes);
 
 
 // starting the server

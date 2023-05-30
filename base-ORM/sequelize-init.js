@@ -117,33 +117,33 @@ const clima = sequelize.define('clima', {
 
 
 const jugadores = sequelize.define('jugadores', {
-  IdJugador: {
+  idJugador: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true
   },
-  Nombre: {
+  nombre: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true
   },
-  Pais: {
+  pais: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  FechaNacimiento: {
+  fechaNacimiento: {
     type: DataTypes.DATEONLY,
     allowNull: false
   },
-  EloMax: {
+  eloMax: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {
       min: 1000
     }
   },
-  FechaEloMax: {
+  fechaEloMax: {
     type: DataTypes.DATEONLY,
     allowNull: false
   }
