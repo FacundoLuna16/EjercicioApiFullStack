@@ -9,7 +9,7 @@ const climaAlta = {
     Humedad: 10
 };
 
-const climaModificada = {
+const climaModif = {
     IdClima: 1,
     Maxima: 32,
     Minima: 22,
