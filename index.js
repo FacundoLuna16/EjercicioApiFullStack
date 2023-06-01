@@ -25,8 +25,14 @@ app.use("/api/climas", climasRoutes);
 app.use("/api/jugadores", jugadoresRoutes);
 
 
-// starting the server
-app.listen(app.get("port"), () => {
-  console.log(`Server on port ${app.get("port")}`);
-});
+if (!module.parent) {   // si no es llamado por otro modulo, es decir, si es el modulo principal -> levantamos el servidor
+  const port = process.env.PORT || 3000;   // en produccion se usa el puerto de la variable de entorno PORT
+  app.locals.fechaInicio = new Date();
+  app.listen(port, () => {
+    console.log(`sitio escuchando en el puerto ${port}`);
+  });
+}
+module.exports = app; // para testing
+
+
 
