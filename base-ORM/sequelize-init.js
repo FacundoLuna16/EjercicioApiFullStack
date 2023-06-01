@@ -79,7 +79,7 @@ const peliculas = sequelize.define('peliculas', {
 {timestamps: false});
 
 
-const clima = sequelize.define('clima', {
+const climas = sequelize.define('climas', {
   IdClima: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -154,6 +154,6 @@ module.exports = {
   series,
   sequelize,
   peliculas,
-  clima,
+  climas,
   jugadores
 };

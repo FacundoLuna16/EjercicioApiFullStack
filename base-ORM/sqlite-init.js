@@ -53,13 +53,13 @@ async function CrearBaseSiNoExiste() {
 
 
   existe = false;
-    res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'clima'",[]);
+    res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'climas'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
-        await db.run("CREATE table clima( IdClima INTEGER PRIMARY KEY AUTOINCREMENT, Maxima INT NOT NULL, Minima INT NOT NULL, Fecha DATE NOT NULL, Lluvia text NOT NULL, Humedad INT NOT NULL);");
-    console.log("tabla Clima creada!");
+        await db.run("CREATE table climas( IdClima INTEGER PRIMARY KEY AUTOINCREMENT, Maxima INT NOT NULL, Minima INT NOT NULL, Fecha DATE NOT NULL, Lluvia text NOT NULL, Humedad INT NOT NULL);");
+    console.log("tabla Climas creada!");
     await db.run(
-        `INSERT INTO clima (Maxima, Minima, Fecha, Lluvia, Humedad) VALUES 
+        `INSERT INTO climas (Maxima, Minima, Fecha, Lluvia, Humedad) VALUES 
         (33, 23, '2022-04-17', 'SI', 55),
         (42, 32, '2022-01-20', 'SI', 44),
         (27, 17, '2021-09-22', 'NO', 33),

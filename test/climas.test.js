@@ -18,10 +18,10 @@ const climaModif = {
     Humedad: 18
 };
 
-describe("GET /api/clima", () => {
+describe("GET /api/climas", () => {
     it("deberia devolver todos los pronosticos", async () => {
         const res = await request(app)
-        .get("/api/clima")
+        .get("/api/climas")
         .set("Accept", "application/json");
         expect(res.headers["content-type"]).toEqual(
         "application/json; charset=utf-8"
@@ -43,10 +43,10 @@ describe("GET /api/clima", () => {
     }
 );
 
-describe("GET /api/clima/:id", () => {
+describe("GET /api/climas/:id", () => {
     it("deberia devolver un pronostico", async () => {
         const res = await request(app)
-        .get("/api/clima/1");
+        .get("/api/climas/1");
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({
@@ -62,9 +62,9 @@ describe("GET /api/clima/:id", () => {
 }
 );
 
-describe("POST /api/clima", () => {
+describe("POST /api/climas", () => {
     it("deberia crear un pronostico", async () => {
-        const res = await request(app).post("/api/clima").send(climaAlta);
+        const res = await request(app).post("/api/climas").send(climaAlta);
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({
@@ -80,9 +80,9 @@ describe("POST /api/clima", () => {
 }
 );
 
-describe("PUT /api/clima/:id", () => {
+describe("PUT /api/climas/:id", () => {
     it("deberia modificar un pronostico", async () => {
-        const res = await request(app).put("/api/clima/1").send(climaModif);
+        const res = await request(app).put("/api/climas/1").send(climaModif);
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({
@@ -98,9 +98,9 @@ describe("PUT /api/clima/:id", () => {
 }
 );
 
-describe("DELETE /api/clima/:id", () => {
+describe("DELETE /api/climas/:id", () => {
     it("deberia eliminar un pronostico", async () => {
-        const res = await request(app).delete("/api/clima/1");
+        const res = await request(app).delete("/api/climas/1");
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({

@@ -3,13 +3,13 @@ const db = require("../base-ORM/sequelize-init");
 const router = new Router();
 
 router.get("/", async (req, res) => {
-  let data = await db.clima.findAll();
+  let data = await db.climas.findAll();
   res.json(data);
 });
 
 
 router.get("/:id", async (req, res) => {
-  let item = await db.clima.findOne({
+  let item = await db.climas.findOne({
     where: { IdClima: req.params.id}
   });
   res.json({item});
@@ -17,7 +17,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try{
-    let data = await db.clima.create({
+    let data = await db.climas.create({
         Maxima: req.body.Maxima,
         Minima : req.body.Minima,
         Fecha : req.body.Fecha,
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    let data = await db.clima.findOne({
+    let data = await db.climas.findOne({
       where : { IdClima: req.params.id }
     });
     if (!data) { 
@@ -54,10 +54,10 @@ router.put("/:id", async (req, res) => {
 // Con el método DELETE, borramos un registro de la tabla
 router.delete("/:id", async (req, res) => {
   try {
-    let data = await db.clima.findOne({
+    let data = await db.climas.findOne({
       where : { IdClima: req.params.id }
     })
-    let filasBorradas = await db.clima.destroy({
+    let filasBorradas = await db.climas.destroy({
       where : { IdClima: req.params.id }
     });
     if (filasBorradas == 1) res.status(200).json({Borrado : data});

@@ -4,7 +4,7 @@ const morgan = require("morgan");
 // routes import
 const peliculasRoutes = require("./routes/peliculas");
 const seriesRoutes = require("./routes/series");
-const climaRoutes = require("./routes/clima");
+const climasRoutes = require("./routes/climas");
 const jugadoresRoutes = require("./routes/jugadores");
 
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.json());
 // routes
 app.use("/api/peliculas", peliculasRoutes);
 app.use("/api/series", seriesRoutes);
-app.use("/api/clima", climaRoutes);
+app.use("/api/climas", climasRoutes);
 app.use("/api/jugadores", jugadoresRoutes);
 
 
