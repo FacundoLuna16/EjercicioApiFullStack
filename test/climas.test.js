@@ -10,7 +10,6 @@ const climaAlta = {
 };
 
 const climaModif = {
-    IdClima: 1,
     Maxima: 32,
     Minima: 22,
     Fecha: "2019-05-10",
