@@ -30,5 +30,3 @@ app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`);
 });
 
-// q: como pruebo que funciona?
-// a: con postman, o con insomnia, o con curl
