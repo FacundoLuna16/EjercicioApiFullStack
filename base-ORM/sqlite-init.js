@@ -34,10 +34,10 @@ async function CrearBaseSiNoExiste() {
     res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'series'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
-        await db.run("CREATE table series( IdSerie INTEGER PRIMARY KEY AUTOINCREMENT, Titulo text NOT NULL UNIQUE,Director text NOT NULL, Year DATE NOT NULL ,CantTemporadas INT, Episodios INT);");
+        await db.run("CREATE table series( IdSerie INTEGER PRIMARY KEY AUTOINCREMENT, Titulo text NOT NULL UNIQUE,Director text NOT NULL, Anio DATE NOT NULL ,CantTemporadas INT, Episodios INT);");
     console.log("tabla Series creada!");
     await db.run(
-        `INSERT INTO series (Titulo, Director, Year, CantTemporadas, Episodios) VALUES 
+        `INSERT INTO series (Titulo, Director, Anio, CantTemporadas, Episodios) VALUES 
         ('Juego de Tronos', 'David Benioff y D. B. Weiss', '2011-04-17', 8, 73),
         ('Breaking Bad', 'Vince Gilligan', '2008-01-20', 5, 62),
         ('Friends', 'David Crane y Marta Kauffman', '1994-09-22', 10, 236),

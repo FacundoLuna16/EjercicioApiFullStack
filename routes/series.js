@@ -36,7 +36,7 @@ router.post("/", async function (req, res, next) {
     let data = await db.series.create({
       titulo: req.body.Titulo,
       director: req.body.Director,
-      year: req.body.Year,
+      Anio: req.body.Anio,
       cantTemporadas: req.body.CantTemporadas,
       episodios: req.body.Episodios
     });
@@ -58,7 +58,7 @@ router.put("/:id", async function (req, res, next) {
     }
     data.titulo = req.body.titulo,
     data.director = req.body.director,
-    data.year = req.body.year,
+    data.Anio = req.body.Anio,
     data.cantTemporadas = req.body.cantTemporadas,
     data.episodios = req.body.episodios
     await data.save();

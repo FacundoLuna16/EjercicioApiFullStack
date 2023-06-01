@@ -21,7 +21,7 @@ const series = sequelize.define('series', {
     type: DataTypes.TEXT,
     allowNull: false
   },
-  Year: {
+  Anio: {
     type: DataTypes.DATEONLY,
     allowNull: false
   },
