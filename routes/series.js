@@ -46,7 +46,6 @@ router.post("/", async function (req, res, next) {
   }
 });
 
-//metodo put para actualizar un registro de las series
 router.put("/:id", async function (req, res, next) {
   try {
     let data = await db.series.findOne({
@@ -56,17 +55,18 @@ router.put("/:id", async function (req, res, next) {
       res.status(404).json({ message: "Articulo no encontrado" });
       return;
     }
-    data.titulo = req.body.titulo,
-    data.director = req.body.director,
-    data.Anio = req.body.Anio,
-    data.cantTemporadas = req.body.cantTemporadas,
-    data.episodios = req.body.episodios
+    data.titulo = req.body.titulo;
+    data.director = req.body.director;
+    data.Anio = req.body.Anio;
+    data.cantTemporadas = req.body.cantTemporadas;
+    data.episodios = req.body.episodios;
     await data.save();
     res.sendStatus(200);
   } catch (error) {
     throw error;
   }
 });
+
 
 //metodo delete para eliminar un registro de las series
 router.delete("/:id", async function (req, res, next) {
