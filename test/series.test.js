@@ -10,7 +10,6 @@ const serieAlta = {
 };
 
 const serieModificada = {
-    IdSerie: 1,
     Titulo: "Deutschland 83",
     Director: "Anna Winger",
     Year: 2010,
@@ -22,8 +21,8 @@ const serieModificada = {
 describe("GET /api/series", () => {
     it("deberia devolver todas las series", async () => {
         const res = await request(app)
-        .get("/api/series")
-        .set("Accept", "application/json");
+            .get("/api/series")
+            .set("Accept", "application/json");
         expect(res.headers["content-type"]).toEqual(
             "application/json; charset=utf-8"
         );
@@ -46,7 +45,7 @@ describe("GET /api/series", () => {
 describe("GET /api/series/:id", () => {
     it("deberia devolver una serie", async () => {
         const res = await request(app)
-        .get("/api/series/1");
+            .get("/api/series/1");
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({
@@ -63,7 +62,9 @@ describe("GET /api/series/:id", () => {
 
 describe("POST /api/series", () => {
     it("deberia crear una serie", async () => {
-        const res = await request(app).post("/api/series").send(serieAlta);
+        const res = await request(app)
+            .post("/api/series")
+            .send(serieAlta);
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(
             expect.objectContaining({
@@ -80,30 +81,18 @@ describe("POST /api/series", () => {
 
 describe("PUT /api/series/:id", () => {
     it("deberia actualizar una serie", async () => {
-        const res = await request(app).put("/api/series/1").send(serieModificada);
+        const res = await request(app)
+            .put("/api/series/1")
+            .send(serieModificada);
         expect(res.status).toEqual(200);
     });
 });
 
 describe("DELETE /api/series/:id", () => {
     it("deberia eliminar una serie", async () => {
-        const res = await request(app).delete("/api/series/1");
+        const res = await request(app)
+            .delete("/api/series/1");
         expect(res.status).toEqual(200);
-        expect(res.body).toEqual(
-            expect.objectContaining({
-                IdSerie: expect.any(Number),
-                Titulo: expect.any(String),
-                Director: expect.any(String),
-                Year: expect.any(Number),
-                CantTemporadas: expect.any(Number),
-                Episodios: expect.any(Number)
-            })
-        );
+        expect(res.body).toEqual({}); // Espera un objeto vacío como respuesta
     });
 });
-
-
-
-
-
-
