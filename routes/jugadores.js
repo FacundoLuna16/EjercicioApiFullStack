@@ -33,7 +33,6 @@ router.post("/", async (req, res) => {
       eloMax: req.body.eloMax,
       fechaEloMax: req.body.fechaEloMax
     });
-    console.log("Jugador CREADO:", data.dataValues);
     res.status(200).json(data.dataValues);
   } catch (error) {
     throw error;
@@ -45,7 +44,7 @@ router.put("/:id", async (req, res) => {
     let data = await db.jugadores.findOne({
       where : { idJugador: req.params.id }
     });
-    console.log("Jugador a modificar:", data.dataValues);
+    
     if (!data) { 
         res.status(404).json({ message: "Jugador no encontrado" });
         return;
@@ -57,7 +56,6 @@ router.put("/:id", async (req, res) => {
     data.fechaNacimiento = req.body.fechaEloMax
     await data.save();
     res.sendStatus(200);
-    console.log("Jugador MODIFICADO:", data.dataValues);
   } catch (error) {
     res.status(500).json({ message: "Error al actualizar al jugador" });
     }
@@ -68,7 +66,6 @@ router.delete("/:id", async (req, res, next) => {
     let data = await db.jugadores.findOne({
       where : { idJugador: req.params.id }
     });
-    console.log("Jugador a eliminar:", data.dataValues);
     if (!data) {
       res.status(404).json({ message: "Jugador no encontrado" });
       return;
