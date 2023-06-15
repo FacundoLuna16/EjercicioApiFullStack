@@ -17,6 +17,13 @@ app.set("port", process.env.PORT || 4000);
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//Configuracion de CORS
+// configurar servidor
+const cors = require("cors");
+app.use(cors({
+  origin: '*'    // origin: 'https://dds-frontend.azurewebsites.net'
+}));
+
 
 // routes
 app.use("/api/peliculas", peliculasRoutes);
@@ -26,7 +33,7 @@ app.use("/api/jugadores", jugadoresRoutes);
 
 
 if (!module.parent) {   // si no es llamado por otro modulo, es decir, si es el modulo principal -> levantamos el servidor
-  const port = process.env.PORT || 4000;   // en produccion se usa el puerto de la variable de entorno PORT
+  const port = process.env.PORT || 3000;   // en produccion se usa el puerto de la variable de entorno PORT
   app.locals.fechaInicio = new Date();
   app.listen(port, () => {
     console.log(`sitio escuchando en el puerto ${port}`);
