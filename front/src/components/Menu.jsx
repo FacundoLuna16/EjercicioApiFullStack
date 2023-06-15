@@ -41,12 +41,12 @@ return (
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" title="exclusivo para administradores" to="/articulosjwt">
+              <NavLink className="nav-link" to="/articulosjwt">
                 series
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" title="exclusivo para administradores" to="/articulosjwt">
+              <NavLink className="nav-link" to="/articulosjwt">
                 climas
               </NavLink>
             </li>
