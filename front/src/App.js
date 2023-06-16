@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Menu from "./components/Menu";
 import { Footer } from "./components/Footer";
 import { Inicio } from "./components/Inicio";
+import { Series } from "./components/series/series";
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <div className="divBody">
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
+              <Route path="/series" element={<Series />} />
               {/* <Route
                 path="/peliculas"
                 element={<ArticulosFamilias />}

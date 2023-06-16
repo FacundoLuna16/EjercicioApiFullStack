@@ -31,22 +31,22 @@ return (
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/articulosfamilias">
+              <NavLink className="nav-link" to="/peliculas">
                 Peliculas
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/articulos">
+              <NavLink className="nav-link" to="/jugadores">
                 jugadores
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/articulosjwt">
+              <NavLink className="nav-link" to="/series">
                 series
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/articulosjwt">
+              <NavLink className="nav-link" to="/climas">
                 climas
               </NavLink>
             </li>

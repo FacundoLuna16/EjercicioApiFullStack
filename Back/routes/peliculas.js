@@ -4,8 +4,23 @@ const db = require("../base-ORM/sequelize-init");
 const router = new Router();
 
 router.get("/", async (req, res) => {
-  let data = await db.peliculas.findAll();
-  res.json(data);
+  try{
+    let where = {};
+    // Si se envía el parámetro "titulo" en la query string, filtramos por ese título
+    if (req.query.Titulo) {
+      where.titulo = {
+        [Op.like]: "%" + req.query.Titulo + "%",
+        };
+    }
+    let data = await db.peliculas.findAndCountAll({
+      order: [["IdPelicula", "ASC"]],
+      where,
+    });
+    res.json(data.rows);
+  }catch (err) {
+    console.log(err);
+    res.status(500).send("Ha ocurrido un error.");
+  }
 });
 
 
