@@ -1,10 +1,8 @@
 import React, { useState} from "react";
 import moment from "moment";
-//importar seriesBuscar, seriesListado, seriesRegistro
 import SeriesBuscar from "./SeriesBuscar";
 import SeriesListado from "./SeriesListado";
 import SeriesRegistro from "./SeriesRegistro";
-//importar el archico series.service
 import { seriesService } from "../../services/series.service";
 
 
@@ -56,6 +54,15 @@ function Series() {
       Episodios: null,
        });
   }
+  async function Eliminar(item) {
+     const resp = window.confirm(
+       "Esta seguro que quiere ELIMINAR el registro?"
+     );
+     if (resp) {
+         await seriesService.Eliminar(item.IdSerie);
+         Buscar();
+     }
+  }
 
 
   async function Grabar(item) {
@@ -91,6 +98,7 @@ function Series() {
           {...{
             Items,
             Consultar,
+            Eliminar,
             Modificar,
             Buscar,
           }}

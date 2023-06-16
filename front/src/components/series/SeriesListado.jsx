@@ -5,6 +5,7 @@ import moment from "moment";
 export default function ArticulosListado({
   Items,
   Consultar,
+  Eliminar,
   Modificar,
   Buscar
 }) {
@@ -45,6 +46,13 @@ export default function ArticulosListado({
                     onClick={() => Modificar(Item)}
                   >
                     <i className="fa fa-pencil "></i>
+                  </button>
+                  <button
+                    className="btn btn-sm btn-outline-danger"
+                    title="Eliminar"
+                    onClick={() => Eliminar(Item)}
+                  >
+                    <i className="fas fa-trash-alt"></i>
                   </button>
                 </td>
               </tr>

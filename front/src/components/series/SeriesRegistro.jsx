@@ -16,6 +16,7 @@ export default function SeriesRegistro({
   const onSubmit = (data) => {
     Grabar(data);
   };
+
   if (!Item) return null;
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -127,11 +128,6 @@ export default function SeriesRegistro({
                   required: {
                     value: true,
                     message: "Cantidad De Temporadas es requerido",
-                  },
-                  pattern: {
-                    value: /^[0-9]{13}$/,
-                    message:
-                      "Cantidad De Temporadas debe ser un número, de 13 dígitos",
                   },
                 })}
                 className={
