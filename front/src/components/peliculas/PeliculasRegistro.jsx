@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function SeriesRegistro({
+export default function PeliculasRegistro({
   AccionABMC,
   Item,
   Grabar,
@@ -18,6 +18,7 @@ export default function SeriesRegistro({
   };
   console.log(Item);
   if (!Item) return null;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="container-fluid">
@@ -34,7 +35,7 @@ export default function SeriesRegistro({
             <div className="col-sm-8 col-md-6">
               <input
                 type="text"
-                {...register("Titulo", {
+                {...register("titulo", {
                   required: { value: true, message: "Titulo es requerido" },
                   minLength: {
                     value: 4,
@@ -47,12 +48,12 @@ export default function SeriesRegistro({
                 })}
                 autoFocus
                 className={
-                  "form-control " + (errors?.Titulo ? "is-invalid" : "")
+                  "form-control " + (errors?.titulo ? "is-invalid" : "")
                 }
               />
-              {errors?.Titulo && touchedFields.Titulo && (
+              {errors?.titulo && touchedFields.titulo && (
                 <div className="invalid-feedback">
-                  {errors?.Titulo?.message}
+                  {errors?.titulo?.message}
                 </div>
               )}
             </div>
@@ -61,14 +62,14 @@ export default function SeriesRegistro({
           {/* campo Director */}
           <div className="row">
             <div className="col-sm-4 col-md-3 offset-md-1">
-              <label className="col-form-label" htmlFor="Director">
+              <label className="col-form-label" htmlFor="director">
                 Director<span className="text-danger">*</span>:
               </label>
             </div>
             <div className="col-sm-8 col-md-6">
               <input
                 type="text"
-                {...register("Director", {
+                {...register("director", {
                   required: { value: true, message: "Director es requerido" },
                   minLength: {
                     value: 4,
@@ -81,17 +82,17 @@ export default function SeriesRegistro({
                 })}
                 autoFocus
                 className={
-                  "form-control " + (errors?.Titulo ? "is-invalid" : "")
+                  "form-control " + (errors?.director ? "is-invalid" : "")
                 }
               />
-              {errors?.Titulo && touchedFields.Titulo && (
+              {errors?.director && touchedFields.director && (
                 <div className="invalid-feedback">
-                  {errors?.Titulo?.message}
+                  {errors?.director?.message}
                 </div>
               )}
             </div>
           </div>
-          {/* campo Anio */}
+          {/* campo year */}
           <div className="row">
             <div className="col-sm-4 col-md-3 offset-md-1">
               <label className="col-form-label" htmlFor="FechaAlta">
@@ -101,71 +102,45 @@ export default function SeriesRegistro({
             <div className="col-sm-8 col-md-6">
               <input
                 type="date"
-                {...register("Anio", {
+                {...register("year", {
                   required: { message: "Anio es requerido" }
                 })}
                 className={
-                  "form-control " + (errors?.Anio ? "is-invalid" : "")
+                  "form-control " + (errors?.year ? "is-invalid" : "")
                 }
               />
               <div className="invalid-feedback">
-                {errors?.Anio?.message}
+                {errors?.year?.message}
               </div>
             </div>
           </div>
 
-          {/* campo CantTemporadas */}
+          {/* campo Rating */}
           <div className="row">
             <div className="col-sm-4 col-md-3 offset-md-1">
-              <label className="col-form-label" htmlFor="CantTemporadas">
-                Cantidad De Temporadas<span className="text-danger">*</span>:
+              <label className="col-form-label" htmlFor="Rating">
+                Rating<span className="text-danger">*</span>:
               </label>
             </div>
             <div className="col-sm-8 col-md-6">
               <input
                 type="text"
-                {...register("CantTemporadas", {
+                {...register("rating", {
                   required: {
                     value: true,
-                    message: "Cantidad De Temporadas es requerido",
+                    message: "Rating es requerido",
                   },
                 })}
                 className={
-                  "form-control" + (errors?.CantTemporadas ? " is-invalid" : "")
+                  "form-control" + (errors?.rating ? " is-invalid" : "")
                 }
               />
               <div className="invalid-feedback">
-                {errors?.CantTemporadas?.message}
+                {errors?.rating?.message}
               </div>
             </div>
           </div>
-
-          {/* campo Episodios */}
-          <div className="row">
-            <div className="col-sm-4 col-md-3 offset-md-1">
-              <label className="col-form-label" htmlFor="Episodios">
-                Episodios<span className="text-danger">*</span>:
-              </label>
-            </div>
-            <div className="col-sm-8 col-md-6">
-              <input
-                {...register("Episodios", {
-                  required: { value: true, message: "Familia es requerido" },
-                })}
-                className={
-                  "form-control " +
-                  (errors?.Episodios ? "is-invalid" : "")
-                }
-              >
-              </input>
-              <div className="invalid-feedback">
-                {errors?.IdArticuloFamilia?.message}
-              </div>
-            </div>
-          </div>
-
         </fieldset>
-
 
         {/* Botones Grabar, Cancelar/Volver' */}
         <hr />

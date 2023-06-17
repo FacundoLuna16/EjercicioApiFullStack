@@ -7,6 +7,7 @@ import Menu from "./components/Menu";
 import { Footer } from "./components/Footer";
 import { Inicio } from "./components/Inicio";
 import { Series } from "./components/series/series";
+import { Peliculas } from "./components/peliculas/peliculas";
 
 
 
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
               <Route path="/series" element={<Series />} />
+              <Route path="/peliculas" element={<Peliculas />} />
               {/* <Route
                 path="/peliculas"
                 element={<ArticulosFamilias />}
