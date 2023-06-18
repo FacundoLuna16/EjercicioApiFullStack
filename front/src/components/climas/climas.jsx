@@ -40,10 +40,10 @@ function Climas() {
   
   
   function Consultar(item) {
-    BuscarPorId(item.IdClima, "C"); // paso la accionABMC pq es asincrono la busqueda y luego de ejecutarse quiero cambiar el estado accionABMC
+    BuscarPorId(item, "C"); // paso la accionABMC pq es asincrono la busqueda y luego de ejecutarse quiero cambiar el estado accionABMC
   }
   function Modificar(item) {
-    BuscarPorId(item.IdClima, "M"); // paso la accionABMC pq es asincrono la busqueda y luego de ejecutarse quiero cambiar el estado accionABMC
+    BuscarPorId(item, "M"); // paso la accionABMC pq es asincrono la busqueda y luego de ejecutarse quiero cambiar el estado accionABMC
   }
 
   function Agregar() {
