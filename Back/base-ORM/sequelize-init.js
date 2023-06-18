@@ -101,7 +101,7 @@ const climas = sequelize.define('climas', {
     }
   },
   Fecha: {
-    type: DataTypes.DATEONLY,
+    type: DataTypes.DATE,
     allowNull: false
   },
   Lluvia: {

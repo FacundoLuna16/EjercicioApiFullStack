@@ -1,10 +1,26 @@
 const { Router } = require('express');
 const db = require("../base-ORM/sequelize-init");
 const router = new Router();
+const { Op } = require("sequelize");
 
 router.get("/", async (req, res) => {
-  let data = await db.climas.findAll();
-  res.json(data);
+  try {
+    let where = {};
+    // Si se envía el parámetro "Lluvia" en la query string, filtramos por ese valor
+    if (req.query.Lluvia) {
+      where.Lluvia = {
+        [Op.like]: "%" + req.query.Lluvia + "%",
+      };
+    }
+    let data = await db.climas.findAndCountAll({
+      order: [["IdClima", "ASC"]],
+      where,
+    });
+    res.json(data.rows);
+  }  catch (err) {
+    console.log(err);
+    res.status(500).send("Ha ocurrido un error.");
+  }
 });
 
 router.get("/:id", async (req, res) => {

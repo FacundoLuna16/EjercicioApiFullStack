@@ -37,17 +37,17 @@ return (
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/jugadores">
-                jugadores
+                Jugadores
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/series">
-                series
+                Series
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/climas">
-                climas
+                Climas
               </NavLink>
             </li>
           </ul>
