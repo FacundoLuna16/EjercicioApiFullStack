@@ -9,6 +9,7 @@ import { Inicio } from "./components/Inicio";
 import { Series } from "./components/series/series";
 import { Peliculas } from "./components/peliculas/peliculas";
 import { Climas } from "./components/climas/climas";
+import { Jugadores } from "./components/jugadores/jugadores";
 
 
 
@@ -25,6 +26,7 @@ function App() {
               <Route path="/series" element={<Series />} />
               <Route path="/peliculas" element={<Peliculas />} />
               <Route path="/climas" element={<Climas />} />
+              <Route path="/jugadores" element={<Jugadores />} />
               {/* <Route
                 path="/peliculas"
                 element={<ArticulosFamilias />}
