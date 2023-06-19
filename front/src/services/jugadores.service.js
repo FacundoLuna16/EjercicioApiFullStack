@@ -27,7 +27,7 @@ async function BuscarPorId(item) {
   
 async function Grabar(item) {
     try {
-      if (!item.IdSerie) {
+      if (!item.idJugador) {
         const resp = await axios.post(urlResource, item);
         return resp.data;
       } else {
