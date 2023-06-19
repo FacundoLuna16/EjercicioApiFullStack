@@ -35,8 +35,8 @@ async function CrearBaseSiNoExiste() {
     if (res.contar > 0) existe = true;
     if (!existe) {
         await db.run("CREATE table series( IdSerie INTEGER PRIMARY KEY AUTOINCREMENT, Titulo text NOT NULL UNIQUE,Director text NOT NULL, Anio DATE NOT NULL ,CantTemporadas INT, Episodios INT);");
-    console.log("tabla Series creada!");
-    await db.run(
+        console.log("tabla Series creada!");
+        await db.run(
         `INSERT INTO series (Titulo, Director, Anio, CantTemporadas, Episodios) VALUES 
         ('Juego de Tronos', 'David Benioff y D. B. Weiss', '2011-04-17', 8, 73),
         ('Breaking Bad', 'Vince Gilligan', '2008-01-20', 5, 62),
@@ -49,10 +49,10 @@ async function CrearBaseSiNoExiste() {
         ('The Big Bang Theory', 'Chuck Lorre y Bill Prady', '2007-09-24', 12, 279),
         ('The Walking Dead', 'Frank Darabont', '2010-10-31', 11, 177);`
     );
-  }
+    }
 
 
-  existe = false;
+    existe = false;
     res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'climas'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
@@ -71,10 +71,10 @@ async function CrearBaseSiNoExiste() {
         (20, 11, '2017-09-24', 'NO', 55),
         (29, 20, '2019-10-31', 'NO', 33);`
     );
-  }
+    }
 
 
-  existe = false;
+    existe = false;
     res = await db.get("SELECT count(*) as contar FROM sqlite_schema WHERE type = 'table' and name= 'jugadores'",[]);
     if (res.contar > 0) existe = true;
     if (!existe) {
@@ -93,7 +93,7 @@ async function CrearBaseSiNoExiste() {
         ('Vladimir Kramnik', 'Rusia', '1975-06-25', 2817, '2016-10-01'),
         ('Richárd Rapport', 'Rumania', '1996-03-25', 2776, '2022-04-01');`
     );
-  }
+    }
 
 
 
