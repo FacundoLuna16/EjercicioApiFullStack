@@ -17,6 +17,13 @@ app.set("port", process.env.PORT || 4000);
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//Configuracion de CORS
+// configurar servidor
+const cors = require("cors");
+app.use(cors({
+  origin: '*'    // origin: 'https://dds-frontend.azurewebsites.net'
+}));
+
 
 // routes
 app.use("/api/peliculas", peliculasRoutes);

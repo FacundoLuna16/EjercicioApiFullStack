@@ -1,4 +1,7 @@
-node_modules
-.data/recursos.db
-
-
+Back/node_modules
+Back/.data/recursos.db
+Back/package-lock.json
+front/node_modules
+front/package-lock.json
+.vscode
+```

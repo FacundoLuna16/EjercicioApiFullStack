@@ -1,11 +1,32 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../base-ORM/sequelize-init");
+const {Op} = require("sequelize");
 
 router.get("/", async function (req, res, next) {
   try {
-    let data = await db.series.findAll();
-    res.json(data);
+    let where = {};
+    // Si se envía el parámetro "titulo" en la query string, filtramos por ese título
+    if (req.query.Titulo) {
+      where.Titulo = {
+        [Op.like]: "%" + req.query.Titulo + "%",
+        };
+;
+    }
+    let data = await db.series.findAndCountAll({
+      attributes: [
+        "IdSerie",
+        "Titulo",
+        "Director",
+        "Anio",
+        "CantTemporadas",
+        "Episodios",
+      ],
+      order: [["IdSerie", "ASC"]],
+      where,
+    });
+    res.json(data.rows);
+
   } catch (err) {
     console.log(err);
     res.status(500).send("Ha ocurrido un error.");
