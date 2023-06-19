@@ -1,11 +1,23 @@
 const express  = require('express');
 const db = require("../base-ORM/sequelize-init");
 const router = express.Router()
+const {Op} = require("sequelize")
 
 router.get("/", async (req, res) => {
   try {
-    let data = await db.jugadores.findAll();
-    res.json(data);
+    let where = {};
+    // Si se envía el parámetro "nombre" en la query string, filtramos por ese nombre
+    if (req.query.nombre) {
+      where.nombre = {
+        [Op.like]: "%" + req.query.nombre + "%",
+        };
+    };
+
+    let data = await db.jugadores.findAndCountAll({
+      order: [["idJugador", "ASC"]],
+      where,
+    });
+    res.json(data.rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error al obtener los jugadores" });
