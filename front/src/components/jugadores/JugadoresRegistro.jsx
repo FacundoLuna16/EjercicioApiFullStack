@@ -124,12 +124,15 @@ export default function JugadoresRegistro({
             </div>
             <div className="col-sm-8 col-md-6">
               <input
-                type="text"
+                type="number"
                 {...register("eloMax", {
                   required: {
                     value: true,
-                    message: "Elo Máximo es requerido",
-                  },
+                    message: "Elo Máximo es requerido" },
+                  min: {
+                    value: 1000,
+                    message: "Elo debe ser mayor a 1000",
+                    },
                 })}
                 className={
                   "form-control" + (errors?.eloMax ? " is-invalid" : "")
