@@ -124,11 +124,19 @@ export default function PeliculasRegistro({
             </div>
             <div className="col-sm-8 col-md-6">
               <input
-                type="text"
+                type="number"
                 {...register("rating", {
                   required: {
                     value: true,
                     message: "Rating es requerido",
+                  },
+                  min: {
+                    value: 1,
+                    message: "El rating debe ser mayor a 0",
+                    },
+                  max: {
+                    value: 10,
+                    message: "El rating debe ser menor a 10",
                   },
                 })}
                 className={

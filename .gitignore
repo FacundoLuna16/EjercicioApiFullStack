@@ -1,7 +1,7 @@
-Back/node_modules
-Back/.data/recursos.db
-Back/package-lock.json
-front/node_modules
+
+Back/node_modules/
+./Back/package-lock.json
+./front/node_modules
+Back/.data/re
+./.vscode
 front/package-lock.json
-.vscode
-```

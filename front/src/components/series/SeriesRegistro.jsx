@@ -123,12 +123,16 @@ export default function SeriesRegistro({
             </div>
             <div className="col-sm-8 col-md-6">
               <input
-                type="text"
+                type="number"
                 {...register("CantTemporadas", {
                   required: {
                     value: true,
                     message: "Cantidad De Temporadas es requerido",
                   },
+                  min: {
+                    value: 1,
+                    message: "La cantidad de temporadas debe ser mayor a 0",
+                    },
                 })}
                 className={
                   "form-control" + (errors?.CantTemporadas ? " is-invalid" : "")
@@ -149,8 +153,13 @@ export default function SeriesRegistro({
             </div>
             <div className="col-sm-8 col-md-6">
               <input
+                type="number"
                 {...register("Episodios", {
                   required: { value: true, message: "Familia es requerido" },
+                  min: {
+                    value: 1,
+                    message: "La cantidad de temporadas debe ser mayor a 0",
+                    },
                 })}
                 className={
                   "form-control " +
