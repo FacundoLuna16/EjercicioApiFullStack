@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function ArticulosRegistro({
+export default function ClimasRegistro({
   AccionABMC,
   Item,
   Grabar,
@@ -118,27 +118,23 @@ export default function ArticulosRegistro({
               </label>
             </div>
             <div className="col-sm-8 col-md-6">
-              <input
-                type="text"
+              <select
                 {...register("Lluvia", {
                   required: { value: true, message: "Lluvia es requerido" },
-                  minLength: {
-                    value: 2,
-                    message: "Lluvia debe tener al menos 4 caracteres",
-                  },
                 })}
                 autoFocus
-                className={
-                  "form-control " + (errors?.Lluvia ? "is-invalid" : "")
-                }
-              />
+                className={"form-control " + (errors?.Lluvia ? "is-invalid" : "")}
+              >
+                <option value="">Seleccionar</option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+              </select>
               {errors?.Lluvia && touchedFields.Lluvia && (
-                <div className="invalid-feedback">
-                  {errors?.Lluvia?.message}
-                </div>
+                <div className="invalid-feedback">{errors?.Lluvia?.message}</div>
               )}
             </div>
           </div>
+
 
           {/* campo Humedad */}
           <div className="row">
